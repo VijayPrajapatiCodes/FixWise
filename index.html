@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">echo "# FixWise" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/VijayPrajapatiCodes/FixWise.git
+git push -u origin main
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FixWise — Fix Smart. Learn Faster.</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d0d0d;--neon:#00ff88;--cyan:#00e5cc;--card:#141414;--text:#e8e8e8;--muted:#666;--border:rgba(0,229,204,0.18)}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;min-height:100vh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,204,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,204,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(13,13,13,0.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--neon)}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--cyan)}
+    .hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden}
+    .hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,255,136,.09) 0%,transparent 70%);pointer-events:none}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.3);border-radius:100px;padding:6px 16px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--neon);letter-spacing:.1em;text-transform:uppercase;margin-bottom:32px;animation:fadeDown .6s ease both}
+    .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--neon);box-shadow:0 0 8px var(--neon);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    h1{font-family:'JetBrains Mono',monospace;font-size:clamp(3rem,8vw,6rem);font-weight:700;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px;animation:fadeDown .7s ease .1s both}
+    .brand{color:var(--neon);text-shadow:0 0 30px rgba(0,255,136,.4),0 0 60px rgba(0,255,136,.15)}
+    .tagline{font-size:1.25rem;color:var(--cyan);font-weight:300;letter-spacing:.02em;margin-bottom:48px;animation:fadeDown .7s ease .2s both}
+    .cta-group{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeDown .7s ease .3s both}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--neon);color:#000;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.9rem;letter-spacing:.05em;border:none;border-radius:6px;cursor:pointer;transition:all .2s;text-decoration:none;box-shadow:0 0 20px rgba(0,255,136,.3)}
+    .btn-primary:hover{background:#00ffaa;box-shadow:0 0 40px rgba(0,255,136,.5);transform:translateY(-2px)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:transparent;color:var(--text);font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.9rem;letter-spacing:.04em;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s;text-decoration:none}
+    .btn-secondary:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+    .terminal-wrap{position:relative;z-index:1;max-width:680px;margin:72px auto 0;animation:fadeUp .8s ease .5s both}
+    .terminal{background:#0a0a0a;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+    .terminal-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#111;border-bottom:1px solid rgba(255,255,255,.05)}
+    .dot{width:12px;height:12px;border-radius:50%}
+    .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+    .terminal-title{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted)}
+    .terminal-body{padding:24px;font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.9}
+    .tc{color:#3d5a4a}.te{color:#ff5f57}.tw{color:#febc2e}.tok{color:var(--neon)}.ti{color:var(--cyan)}.tm{color:#444}.tf{color:#a8a8f0}
+    .cursor{display:inline-block;width:8px;height:14px;background:var(--neon);vertical-align:middle;animation:blink 1s step-end infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .section{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px 24px}
+    .section-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--neon);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+    .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.1;margin-bottom:64px}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .feature-card{background:var(--card);padding:40px 32px;transition:background .2s}
+    .feature-card:hover{background:#181818}
+    .feature-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.2);border-radius:10px;font-size:1.3rem;margin-bottom:20px}
+    .feature-title{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+    .feature-desc{font-size:.88rem;color:var(--muted);line-height:1.7}
+    .why-section{position:relative;z-index:1;background:linear-gradient(135deg,rgba(0,255,136,.04),rgba(0,229,204,.02));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center}
+    .flow-steps{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin-top:48px}
+    .flow-step{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .step-circle{width:80px;height:80px;border-radius:50%;background:var(--card);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.8rem;transition:border-color .2s,box-shadow .2s}
+    .flow-step:hover .step-circle{border-color:var(--neon);box-shadow:0 0 20px rgba(0,255,136,.2)}
+    .step-label{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--neon);letter-spacing:.06em}
+    .flow-arrow{font-size:1.5rem;color:var(--cyan);padding:0 20px;opacity:.6}
+    .install-section{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:100px 24px;text-align:center}
+    .install-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:48px 40px;margin-top:40px}
+    .code-block{background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:16px 20px;font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--neon);margin-bottom:32px;text-align:left}
+    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-brand{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--neon);font-weight:700}
+    .footer-copy{font-size:.8rem;color:var(--muted)}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:600px){nav{padding:14px 20px}.nav-links{display:none}.flow-arrow{display:none}.install-box{padding:32px 20px}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="7" fill="#1a2a1a"/>
+      <path d="M8,14 C7,12 7,9 9.5,8 C11,7 13,7.5 13.5,9 C13.8,7 15,6 16,6.5" stroke="#00e5cc" stroke-width="1.3" fill="none"/>
+      <path d="M24,14 C25,12 25,9 22.5,8 C21,7 19,7.5 18.5,9 C18.2,7 17,6 16,6.5" stroke="#00e5cc" stroke-width="1.3" fill="none"/>
+      <path d="M8,14 C7.5,16 8,18 10,19 C12,19.5 13.5,18.5 14,17 C15,19 16,20 16,20 C16,20 17,19 18,17 C18.5,18.5 20,19.5 22,19 C24,18 24.5,16 24,14" stroke="#00e5cc" stroke-width="1.3" fill="none"/>
+      <line x1="16" y1="6.5" x2="16" y2="20" stroke="#00e5cc" stroke-width="0.8" stroke-dasharray="2,1.5"/>
+      <polygon points="17.2,18 13.5,24 16,24 14.8,30 20,22 17,22" fill="#00ff88"/>
+      <circle cx="23" cy="9" r="4.5" fill="#111" stroke="#00ff88" stroke-width="1.2"/>
+      <polyline points="20.5,9 22.2,11 25.5,6.5" stroke="#00ff88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    FixWise
+  </div>
+  <ul class="nav-links">
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code#overview" target="_blank">Features</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code" target="_blank">Why FixWise</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code" target="_blank">Install</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="badge">VS Code Extension · Live on Marketplace</div>
+  <h1><span class="brand">FixWise</span></h1>
+  <p class="tagline">Fix smart. Learn faster.</p>
+
+  <!-- Marketplace Stats Bar -->
+  <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;animation:fadeDown .7s ease .25s both">
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.2);border-radius:8px;padding:8px 18px">
+      <span style="font-size:1rem">⬇️</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--cyan)">2 Installs</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(255,188,46,.06);border:1px solid rgba(255,188,46,.2);border-radius:8px;padding:8px 18px">
+      <span style="font-size:1rem">⭐</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#febc2e">5.0 Rating (1 review)</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.2);border-radius:8px;padding:8px 18px">
+      <span style="font-size:1rem">🆓</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--neon)">Free</span>
+    </div>
+  </div>
+
+  <div class="cta-group">
+    <a class="btn-primary" href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code" target="_blank">⚡ Install FixWise</a>
+    <a class="btn-secondary" href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code" target="_blank">Explore Features →</a>
+  </div>
+
+  <div class="terminal-wrap">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span class="terminal-title">fixwise — analyzer</span>
+      </div>
+      <div class="terminal-body">
+        <div class="tc">// FixWise scanning your project...</div><br/>
+        <div class="ti">► Analyzing <span class="tf">src/app.js</span> ...</div>
+        <div class="te">✖ Line 14: Undefined variable <span class="tf">'userData'</span></div>
+        <div style="color:#444;padding-left:16px;font-size:.78rem">💡 Declare the variable before use. <span style="color:#00e5cc">Learn why →</span></div><br/>
+        <div class="tw">⚠ Line 27: Function name should be camelCase</div>
+        <div style="color:#444;padding-left:16px;font-size:.78rem">💡 Rename <span class="tw">Get_User</span> → <span class="tok">getUser</span></div><br/>
+        <div class="tok">✔ <span class="tf">utils/helper.js</span> — No issues found</div>
+        <div class="tok">✔ <span class="tf">components/Card.jsx</span> — No issues found</div><br/>
+        <div class="tm">────────────────────────────────</div>
+        <div><span class="te">2 errors</span>&nbsp;<span class="tw">1 warning</span>&nbsp;<span class="tok">2 clean</span></div><br/>
+        <div class="ti">$ <span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="section-label">// capabilities</div>
+  <h2 class="section-title">Everything you need<br/>to code smarter</h2>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">🔍</div><div class="feature-title">Real-time Error Detection</div><div class="feature-desc">FixWise scans your code as you type, catching bugs before they crash your app.</div></div>
+    <div class="feature-card"><div class="feature-icon">🧠</div><div class="feature-title">Beginner-Friendly Explanations</div><div class="feature-desc">No cryptic messages. Every error is explained in plain language so you actually learn.</div></div>
+    <div class="feature-card"><div class="feature-icon">📍</div><div class="feature-title">Exact Line Highlighting</div><div class="feature-desc">Instantly see which line has the problem. One click jumps you right to it.</div></div>
+    <div class="feature-card"><div class="feature-icon">📁</div><div class="feature-title">Naming Convention Checker</div><div class="feature-desc">Keeps your files, functions, and variables consistent with best practices.</div></div>
+    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-title">Instant Feedback</div><div class="feature-desc">Zero delay. FixWise works silently in the background, surfacing issues the moment they appear.</div></div>
+    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-title">Learn as You Fix</div><div class="feature-desc">Each suggestion comes with context and a mini-lesson so you don't repeat the mistake.</div></div>
+  </div>
+</section>
+
+<section class="why-section" id="why">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--neon);letter-spacing:.18em;text-transform:uppercase">// philosophy</div>
+  <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin:16px 0">Why FixWise?</h2>
+  <p style="color:var(--muted);max-width:480px;margin:0 auto 16px;line-height:1.7">Unlike auto-fix tools, FixWise doesn't just patch the problem — it teaches you to avoid it next time.</p>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="step-circle">🔍</div><div class="step-label">Detect</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-circle">🧠</div><div class="step-label">Understand</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-circle">📚</div><div class="step-label">Learn</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-circle">🚀</div><div class="step-label">Improve</div></div>
+  </div>
+</section>
+
+<section class="install-section" id="install">
+  <div class="section-label">// get started</div>
+  <h2 style="font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;margin-top:12px">Install in seconds</h2>
+  <div class="install-box">
+    <h3 style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--cyan);margin-bottom:24px">Search in VS Code Marketplace</h3>
+    <div class="code-block">ext install vijay-prajapati.fix-my-code</div>
+    <a class="btn-primary" style="display:inline-flex;margin-bottom:16px" href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code" target="_blank">⚡ Install FixWise Free</a>
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px">Works with VS Code v1.75.0+ · No signup required</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.18);border-radius:4px;padding:4px 10px;color:var(--neon)">code analyzer</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:rgba(0,229,204,.07);border:1px solid rgba(0,229,204,.18);border-radius:4px;padding:4px 10px;color:var(--cyan)">linter</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.18);border-radius:4px;padding:4px 10px;color:var(--neon)">javascript</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:rgba(0,229,204,.07);border:1px solid rgba(0,229,204,.18);border-radius:4px;padding:4px 10px;color:var(--cyan)">python</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.18);border-radius:4px;padding:4px 10px;color:var(--neon)">error finder</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">⚡ FixWise</div>
+  <div class="footer-copy">Built by <strong style="color:var(--text)">Vijay Prajapati</strong> · MIT License</div>
+  <a href="https://marketplace.visualstudio.com/items?itemName=vijay-prajapati.fix-my-code" target="_blank" style="font-size:.8rem;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,229,204,.3)">View on VS Code Marketplace →</a>
+</footer>
+
+</body>
+</html>
